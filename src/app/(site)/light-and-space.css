@@ -1,0 +1,134 @@
+.about-layout {
+  min-height: 70svh;
+  align-items: center;
+}
+.about-seal {
+  padding: 0;
+  max-width: 500px;
+  position: relative;
+}
+.about-seal::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background: radial-gradient(ellipse, #ffffffd9 20%, transparent 70%);
+}
+.page-section:has(.about-layout) {
+  isolation: isolate;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 72% 40%, #ffffff 8%, #f8f8ff94 35%, transparent 65%),
+    linear-gradient(135deg, #eee8f6, #e3ecea 70%, #cdc5dd);
+}
+.page-section:has(.journal-list) {
+  background: linear-gradient(145deg, #f8f8ff, #e7e4f1 60%, #d5dfdf);
+}
+.journal-detail {
+  position: relative;
+  isolation: isolate;
+}
+.journal-detail::before {
+  content: '';
+  position: absolute;
+  inset: 0 calc((100% - 100vw) / 2);
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 15% 40%, #ebe0f2, transparent 55%),
+    linear-gradient(170deg, #f8f8ff, #e3e9e6);
+}
+.journal-cover.study-cover {
+  background: radial-gradient(ellipse, #f8f8ff, transparent 70%);
+}
+.contact-page {
+  background:
+    radial-gradient(ellipse at 75% 80%, #b8c6c5, transparent 60%),
+    linear-gradient(130deg, #f8f8ff 5%, #e0d6ea 65%, #c3c2d6);
+}
+.project-title {
+  background: linear-gradient(135deg, #f8f8ff, #e8e2f1 65%, #c7d4d3);
+}
+.project-cover {
+  background: linear-gradient(180deg, #c7c4d7, #43304e 50%, #1c0b23);
+}
+.project-detail.is-study .project-cover {
+  background:
+    radial-gradient(ellipse at 50% 30%, #f8f8ff91, transparent 65%),
+    linear-gradient(180deg, #c7c4d7, #796787 60%, #2b1a36);
+}
+.project-cover figcaption {
+  color: #e2d7ee;
+  padding-bottom: 16px;
+}
+.project-gallery {
+  background: linear-gradient(160deg, #ded7e7, #f8f8ff 65%);
+}
+.demo-notice {
+  color: #66502b;
+  background: #eee8dc;
+}
+.newsletter {
+  background: linear-gradient(120deg, #f8f8ff, #e2d9ee 65%, #d3e3df);
+}
+.email-field input {
+  background: #f8f8ffb3;
+  color: #1c0b23;
+}
+.email-field button {
+  color: #574323;
+}
+.newsletter-form .form-error {
+  color: #9a263c;
+}
+.newsletter-form .form-success {
+  color: #00655e;
+}
+.newsletter-form > label {
+  color: #49374f;
+}
+.journal-timeline {
+  list-style: none;
+  padding: 0 0 0 28px;
+  margin: 0;
+  border-left: 1px solid #76614066;
+}
+.journal-timeline .journal-entry {
+  position: relative;
+  border-top: 0;
+  padding: 0 0 65px;
+}
+.journal-timeline .journal-entry::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #746344;
+  background: #f8f8ff;
+  transform: rotate(45deg);
+}
+.journal-timeline .journal-entry:last-child {
+  padding-bottom: 12px;
+}
+.sample-film video {
+  display: block;
+  width: 100%;
+  max-height: 65svh;
+  background: #1c0b23;
+}
+.sample-film {
+  background: linear-gradient(145deg, #f8f8ff, #ded5e9);
+}
+@media (max-width: 700px) {
+  .page-section:has(.about-layout) {
+    padding-top: 35px;
+  }
+  .about-layout {
+    gap: 55px;
+  }
+  .about-seal {
+    max-width: 420px;
+    margin: auto;
+  }
+}

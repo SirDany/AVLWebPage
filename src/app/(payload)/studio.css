@@ -1,0 +1,69 @@
+.studio-brand {
+  background: #f8f8ff;
+  padding: 10px;
+  border-radius: 3px;
+  max-width: 180px;
+}
+.studio-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.studio-overview {
+  margin-bottom: 32px;
+  padding: 28px;
+  border: 1px solid #8b743c66;
+  background: linear-gradient(115deg, #1c0b23, #191932);
+  color: #f8f8ff;
+  border-radius: 5px;
+}
+.studio-overview h2 {
+  margin: 8px 0 14px;
+  font-weight: 400;
+}
+.studio-overview p {
+  line-height: 1.8;
+  color: #d4c7dd;
+}
+.studio-kicker {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c6b17c;
+}
+.studio-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.studio-actions a {
+  padding: 12px 16px;
+  border: 1px solid #8b743c;
+  text-decoration: none;
+  color: #f8f8ff;
+}
+.audience-panel {
+  border-top: 1px solid #8b743c66;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.audience-panel button {
+  padding: 10px 14px;
+  margin: 8px 8px 8px 0;
+  cursor: pointer;
+}
+.audience-panel table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.audience-panel td,
+.audience-panel th {
+  padding: 12px;
+  border-bottom: 1px solid #ffffff22;
+  overflow-wrap: anywhere;
+}
+.audience-panel .audience-error {
+  color: #ffd3c8;
+}

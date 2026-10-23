@@ -1,0 +1,56 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Set PAYLOAD_SECRET}
+      SITE_URL: ${SITE_URL:?Set the public HTTPS SITE_URL}
+      AVL_DEMO_CONTENT: ${AVL_DEMO_CONTENT:-false}
+      DATABASE_URL: postgresql://avl:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@database:5432/avl
+      DATABASE_PUSH: 'false'
+      TRUST_PROXY: 'true'
+      MAILERLITE_API_KEY: ${MAILERLITE_API_KEY:-}
+      MAILERLITE_GROUP_ID: ${MAILERLITE_GROUP_ID:-}
+      NEWSLETTER_DOUBLE_OPT_IN_CONFIRMED: ${NEWSLETTER_DOUBLE_OPT_IN_CONFIRMED:-false}
+    volumes:
+      - uploads:/app/media
+    depends_on:
+      database:
+        condition: service_healthy
+    networks: [backend, edge]
+  database:
+    image: postgres:17-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: avl
+      POSTGRES_USER: avl
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U avl -d avl']
+      interval: 5s
+      timeout: 5s
+      retries: 15
+    networks: [backend]
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      SITE_HOST: ${SITE_HOST:?Set SITE_HOST to the domain without scheme}
+    ports: ['80:80', '443:443', '443:443/udp']
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - certificates:/data
+      - caddy_config:/config
+    depends_on: [app]
+    networks: [edge]
+volumes:
+  database:
+  uploads:
+  certificates:
+  caddy_config:
+networks:
+  backend:
+    internal: true
+  edge:

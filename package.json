@@ -1,0 +1,53 @@
+{
+  "name": "avl-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.22.1"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "generate": "payload generate:types && payload generate:importmap",
+    "migrate": "payload migrate",
+    "migrate:create": "payload migrate:create",
+    "owner:create": "tsx scripts/create-owner.ts"
+  },
+  "dependencies": {
+    "@next/env": "16.4.2",
+    "@fontsource/roboto": "^5.2.0",
+    "@payloadcms/db-postgres": "3.92.0",
+    "@payloadcms/db-sqlite": "3.92.0",
+    "@payloadcms/next": "3.92.0",
+    "@payloadcms/richtext-lexical": "3.92.0",
+    "@payloadcms/ui": "3.92.0",
+    "graphql": "^16.11.0",
+    "next": "16.4.2",
+    "payload": "3.92.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "0.35.5",
+    "tsx": "^4.23.0"
+  },
+  "overrides": {
+    "sass": "1.106.1",
+    "dompurify": "3.4.17"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "^5.9.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.4.2",
+    "prettier": "^3.6.0",
+    "vitest": "^4.0.18"
+  }
+}
